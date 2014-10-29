@@ -192,7 +192,7 @@ if (!defined('GUZZLE_STREAMS_FUNCTIONS')) {
                 'Unable to open %s using mode %s: %s',
                 $filename,
                 $mode,
-                func_get_args()[1]
+                func_get_args()//[1]
             ));
         });
 
