@@ -1,0 +1,22 @@
+drupalite.mobile:
+  label: mobile
+  mediaQuery: '(min-width: 0px)'
+  weight: 0
+  multipliers:
+    - 1x
+    # 1.5 supports Android displays
+    - 1.5x
+drupalite.narrow:
+  label: narrow
+  mediaQuery: 'all and (min-width: 560px) and (max-width: 850px)'
+  weight: 1
+  multipliers:
+    - 1x
+drupalite.wide:
+  label: wide
+  mediaQuery: 'all and (min-width: 851px)'
+  weight: 2
+  multipliers:
+    - 1x
+    # 2x supports Mac retina display
+    - 2x

@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Functions to support theming in the Bartik theme.
+ * Functions to support theming in the drupalite theme.
  */
 
 use Drupal\Component\Utility\String;
@@ -14,7 +14,7 @@ use Drupal\Core\Template\Attribute;
  *
  * Adds body classes if certain regions have content.
  */
-function bartik_preprocess_page(&$variables) {
+function drupalite_preprocess_page(&$variables) {
   // Add information about the number of sidebars.
   /** @var \Drupal\Core\Page\HtmlPage $page_object */
   $page_object = $variables['page']['#page'];
@@ -56,7 +56,7 @@ function bartik_preprocess_page(&$variables) {
   $attributes['class'] = $classes;
 
   // Set the options that apply to both page and maintenance page.
-  _bartik_process_page($variables);
+  _drupalite_process_page($variables);
 
   // Since the title and the shortcut link are both block level elements,
   // positioning them next to each other is much simpler with a wrapper div.
@@ -79,7 +79,7 @@ function bartik_preprocess_page(&$variables) {
 /**
  * Implements hook_preprocess_HOOK() for maintenance-page.html.twig.
  */
-function bartik_preprocess_maintenance_page(&$variables) {
+function drupalite_preprocess_maintenance_page(&$variables) {
   // By default, site_name is set to Drupal if no db connection is available
   // or during site installation. Setting site_name to an empty string makes
   // the site and update pages look cleaner.
@@ -88,17 +88,17 @@ function bartik_preprocess_maintenance_page(&$variables) {
     $variables['site_name'] = '';
   }
 
-  // Bartik has custom styling for the maintenance page.
-  $variables['#attached']['library'][] = 'bartik/maintenance_page';
+  // drupalite has custom styling for the maintenance page.
+  $variables['#attached']['library'][] = 'drupalite/maintenance_page';
 
   // Set the options that apply to both page and maintenance page.
-  _bartik_process_page($variables);
+  _drupalite_process_page($variables);
 }
 
 /**
  * Implements hook_preprocess_HOOK() for node.html.twig.
  */
-function bartik_preprocess_node(&$variables) {
+function drupalite_preprocess_node(&$variables) {
   // Remove the "Add new comment" link on teasers or when the comment form is
   // displayed on the page.
   if ($variables['teaser'] || !empty($variables['content']['comments']['comment_form'])) {
@@ -109,7 +109,7 @@ function bartik_preprocess_node(&$variables) {
 /**
  * Implements hook_preprocess_HOOK() for block.html.twig.
  */
-function bartik_preprocess_block(&$variables) {
+function drupalite_preprocess_block(&$variables) {
   // Add a clearfix class to system branding blocks.
   if ($variables['plugin_id'] == 'system_branding_block') {
     $variables['attributes']['class'][] = 'clearfix';
@@ -123,7 +123,7 @@ function bartik_preprocess_block(&$variables) {
 /**
  * Implements hook_preprocess_HOOK() for menu.html.twig.
  */
-function bartik_preprocess_menu(&$variables) {
+function drupalite_preprocess_menu(&$variables) {
   $variables['attributes']['class'][] = 'clearfix';
 }
 
@@ -132,7 +132,7 @@ function bartik_preprocess_menu(&$variables) {
  *
  * @see template_preprocess_field()
  */
-function bartik_preprocess_field(&$variables) {
+function drupalite_preprocess_field(&$variables) {
   $element = $variables['element'];
   if ($element['#field_type'] == 'taxonomy_term_reference') {
     $variables['title_attributes']['class'][] = 'field-label';
@@ -145,7 +145,7 @@ function bartik_preprocess_field(&$variables) {
 /**
  * Helper function for handling the site name and slogan.
  */
-function _bartik_process_page(&$variables) {
+function _drupalite_process_page(&$variables) {
   $site_config = \Drupal::config('system.site');
   // Always print the site name and slogan, but if they are toggled off, we'll
   // just hide them visually.
