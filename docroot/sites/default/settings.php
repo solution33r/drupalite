@@ -646,5 +646,5 @@ ini_set('session.cookie_lifetime', 2000000);
 // settings.php for development on your local workstation, set $db_url
 // (Drupal 5 or 6) or $databases (Drupal 7 or 8) as described in comments above.
 if (file_exists('/var/www/site-php')) {
-  require '/var/www/site-php/drupalite/drupalite_d8-settings.inc';
+  require '/var/www/site-php/drupalite/d8_drupalite-settings.inc';
 }
