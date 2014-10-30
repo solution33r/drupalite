@@ -9,3 +9,4 @@ stylesheets:
     - css/layout.css
     - css/style.css
     - css/colors.css
+    - css/style_custom.css
