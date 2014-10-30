@@ -1,0 +1,11 @@
+name: Drupalite
+type: theme
+description: 'A Subtheme of Bartik'
+version: VERSION
+core: 8.x
+base theme: bartik
+stylesheets:
+  all:
+    - css/layout.css
+    - css/style.css
+    - css/colors.css
